@@ -9,18 +9,12 @@ public class Expenditure {
     public static void main(String[] args) {
         System.out.println("        WELCOME TO YOUR OWN PERSONAL EXPENSES MANAGER");
         System.out.println("           Note- turning on caps lock is suggested\n");
-
-
-
         Scanner test= new Scanner(System.in);
         int n=0,i,will=2,t;
         transaction_details[] cus = new transaction_details[10];
         while(will==2){
             System.out.print("Enter the number of enteries to be done -:");
             t= test.nextInt();
-
-
-
             for(i=0;i<t;i++) {
                 cus[i+n]= new transaction_details();
                 System.out.println("Entry "+ (i+n+1));
@@ -38,7 +32,6 @@ public class Expenditure {
                 ca= test.next();
                 if(ca.equals("CD")){
                     for(i=0;i<n;i++){
-
                         cus[i].display();
                         System.out.println("");
                     }
@@ -58,8 +51,6 @@ public class Expenditure {
                             char[] amt = new char[num];
                             line.getChars(20,a,amt,0);
                             s+= Integer.parseInt(String.valueOf(amt));
-
-
                         }
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
@@ -128,8 +119,6 @@ public class Expenditure {
                             char[] amt = new char[num];
                             line.getChars(20,a,amt,0);
                             s+= Integer.parseInt(String.valueOf(amt));
-
-
                         }
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
@@ -174,8 +163,6 @@ public class Expenditure {
                             char[] amt = new char[num];
                             line.getChars(20,a,amt,0);
                             s+= Integer.parseInt(String.valueOf(amt));
-
-
                         }
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
@@ -197,8 +184,6 @@ public class Expenditure {
                             char[] amt = new char[num];
                             line.getChars(20,a,amt,0);
                             s+= Integer.parseInt(String.valueOf(amt));
-
-
                         }
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
@@ -225,10 +210,7 @@ class transaction_details {
     public void read() {
         Scanner inp = new Scanner(System.in);
         System.out.println("Enter amount paid");
-
         amount =inp.nextInt();
-
-
         System.out.println("Enter mode:-\nO for online\nC for cash\nW for cash withdrawl");
         mode =inp.next();
         if(mode.equals("O") || mode.equals("C") || mode.equals("W"))
@@ -247,15 +229,13 @@ class transaction_details {
                 System.out.println("Enter valid type");
                 type = inp.next();
             }
-        }
-        BufferedWriter out = null;
+        }BufferedWriter out = null;
         try {
             out = new BufferedWriter(
                     new FileWriter("Cash_required.txt", true));
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         BufferedWriter out4 = null;
         try {
             out4 = new BufferedWriter(
@@ -304,27 +284,22 @@ class transaction_details {
                 out.write("   -"+amount+"\n");
                 out6.write(dtf.format(now));
                 out6.write("   -"+amount+"\n");
-
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
         else if (mode.equals("C") && type.equals("M")){
             try {
-
                 out1.write(dtf.format(now));
                 out1.write("   -"+amount+"\n");
                 out6.write(dtf.format(now));
                 out6.write("   -"+amount+"\n");
-
-
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
         else if (mode.equals("O") && type.equals("M")){
             try {
-
                 out2.write(dtf.format(now));
                 out2.write("   -"+amount+"\n");
                 out5.write(dtf.format(now));
@@ -345,7 +320,6 @@ class transaction_details {
         }
         else if (mode.equals("W")){
             try {
-
                 out4.write(dtf.format(now));
                 out4.write("   -"+amount+"\n");
             } catch (IOException e) {
